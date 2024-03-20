@@ -28,8 +28,5 @@ npm start
  i.) After sign-up / login a token will be returned in response
  ii) Put that token in Authorization tab of collection selecting Bearer token option and save it.
  iii) Now try testing other endpoints in the collection
-![screenshot](path/to/bearer.png)
 
-# Endpoints
 
-![screenshot](path/to/endpoints.png)
