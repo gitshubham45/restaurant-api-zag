@@ -147,4 +147,28 @@ const replyToReview = asyncHandler(async(req,res)=>{
     }
 });
 
-module.exports = { addReview , getAllReviews , updateReview , removeReview, replyToReview };
+const averageRating = asyncHandler(async(req,res)=>{
+    try {
+        const { listingId } = req.body;
+
+        // Find all reviews with the given listing ID
+        const reviews = await Review.find({ listingId });
+
+        if (reviews.length === 0) {
+            return res.status(404).json({ message: 'No reviews found for the listing' });
+        }
+
+        // Calculate the total sum of ratings
+        const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+
+        // Calculate the average rating
+        const averageRating = totalRating / reviews.length;
+
+        res.json({ averageRating });
+    } catch (error) {
+        console.error('Error fetching average rating:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+})
+
+module.exports = { addReview , getAllReviews , updateReview , removeReview, replyToReview , averageRating };

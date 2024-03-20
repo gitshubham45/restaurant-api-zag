@@ -1,6 +1,13 @@
 const express = require('express');
-const { addReview, getAllReviews, updateReview,removeReview , replyToReview } = require('../controllers/reviewControllers');
-const {protect} = require("../middleware/authMiddleware");
+const {
+    addReview,
+    getAllReviews,
+    updateReview,
+    removeReview,
+    replyToReview,
+    averageRating 
+} = require('../controllers/reviewControllers');
+const { protect } = require("../middleware/authMiddleware");
 
 
 const router = express.Router();
@@ -13,5 +20,8 @@ router.route("/").delete(protect, removeReview);
 
 // reply to a review 
 router.route("/reply").put(protect, replyToReview);
+
+// average rating
+router.route("/rating").get(protect, averageRating);
 
 module.exports = router;
