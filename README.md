@@ -1,6 +1,3 @@
----
-title: Running the Project Locally
----
 
 # Running the Project Locally
 
@@ -28,26 +25,10 @@ npm start
 
 # 5. Test the endpoints shared through POSTMAN collection
 
----
-title: examples of postman endpoints
----
+ i.) After sign-up / login a token will be returned in response
+ ii) Put that token in Authorization tab of collection selecting Bearer token option and save it.
+ iii) Now try testing other endpoints in the collection
+ ![alt text](image.png)
 
-# sign up
-{
-    "name" : "Ram Kumar",
-    "email" : "Ram@sam.com",
-    "password" : "12345",
-    "role" : "user" // role - [user, admin , owner]
-}
-
-
-# Log in
-
-{
-    "email" : "shubham@sam.com",
-    "password" : "12345"
-}
-
-
-
-
+ # endpoints
+ ![alt text](image-1.png)
